@@ -1,0 +1,46 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wireit",
+    "start": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "command": "rollup -c",
+      "files": [
+        "../../node_modules/design-system/dist/",
+        "rollup.config.js"
+      ],
+      "output": [
+        "dist"
+      ]
+    },
+    "start": {
+      "command": "npx @11ty/eleventy --serve",
+      "dependencies": [
+        "build"
+      ],
+      "files": [
+        "src/",
+        "dist/"
+      ],
+      "output": [
+        "_site/"
+      ]
+    }
+  },
+  "dependencies": {
+    "@lit-labs/eleventy-plugin-lit": "^1.0.1",
+    "@webcomponents/template-shadowroot": "^0.2.1",
+    "design-system": "^1.0.0",
+    "lit": "^2.7.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "^0.4.1",
+    "rollup": "^3.20.2",
+    "wireit": "^0.9.5"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "11ty-lit",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "command": "npm run build -w design-system"
+    },
+    "start": {
+      "command": "npm start -w site",
+      "dependencies": ["build"]
+    }
+  },
+  "workspaces": [
+    "packages/design-system",
+    "packages/site"
+  ],
+  "devDependencies": {
+    "wireit": "^0.9.5"
+  }
+}
