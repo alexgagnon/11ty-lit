@@ -2,11 +2,13 @@
   "compilerOptions": {
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "target": "ES5",
+    "target":"ES2019",
     "declaration": true,
     "emitDeclarationOnly": false,
     "rootDir": "./src",
     "outDir": "./dist",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -15,8 +17,6 @@
     "moduleResolution": "Node",
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },

@@ -4,23 +4,22 @@ import terser from '@rollup/plugin-terser';
 
 const plugins = [
   resolve(),
-  // terser({
-  //   ecma: 2020,
-  //   module: true,
-  //   warnings: true
-  // }),
+  terser({
+    ecma: 2020,
+    module: true,
+    warnings: true
+  }),
 ];
 
 const output = {
   dir: 'dist',
   format: 'es',
-  entryFileNames: '[name].js',
 };
 
 export default [
   {
-    input: '../../node_modules/design-system/dist/design-system.js',
-    plugins,
+    input: '../../node_modules/design-system/dist/index.js',
+    plugins: [/*minifyHTML(),*/ ...plugins],
     output: {
       ...output,
       entryFileNames: 'design-system.js',

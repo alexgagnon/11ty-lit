@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(litPlugin, {
     mode: 'worker',
     componentModules: [
-      '../../node_modules/design-system/dist/design-system.js',
+      '../../node_modules/design-system/dist/index.js',
     ],
   });
 

@@ -1,1 +1,1 @@
-export {Greeting} from './greeting/Greeting';
+export { Greeting } from './greeting/Greeting.js';

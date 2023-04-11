@@ -9,10 +9,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "lit": "^2.7.2",
-    "vite": "^4.2.1"
+    "typescript": "^5.0.4"
   }
 }
