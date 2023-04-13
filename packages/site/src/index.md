@@ -1,8 +1,6 @@
 ---
 layout: default.html
-title: 11ty + Lit
+title: Home
+entrypoint: ./entrypoints/index.js
 ---
-
-# 11ty + Lit
-
 <my-greeting name="friend">Righto!</my-greeting>

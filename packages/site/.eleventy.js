@@ -2,9 +2,7 @@ const litPlugin = require('@lit-labs/eleventy-plugin-lit');
 
 module.exports = function (eleventyConfig) {
   // copy these files into our publish directory
-  eleventyConfig.addPassthroughCopy({
-    'dist/**/*.*': 'js/',
-  });
+  eleventyConfig.addPassthroughCopy('src/entrypoints');
 
   // add the Lit custom-element detector/processor
   eleventyConfig.addPlugin(litPlugin, {

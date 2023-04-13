@@ -2,12 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{{ title }}</title>
+    <title>11ty + Lit | {{ title }}</title>
     <!-- As an optimization, immediately begin fetching the JavaScript modules
         that we know for sure we'll eventually need. It's important we don't
         execute them yet, though. -->
+    
+    <!--
     <link rel="modulepreload" href="./js/design-system.js" />
-    <link rel="modulepreload" href="./js/lit-element-hydrate-support.js" />
+    <link rel="modulepreload" href="./js/lit-element-hydrate-support.js" /> -->
 
     <!-- On browsers that don't yet support native declarative shadow DOM, a
          paint can occur after some or all pre-rendered HTML has been parsed,
@@ -32,6 +34,13 @@
       }
     </script>
 
+    <ul>
+      <li><a href='/'>Home page</a></li>
+      <li><a href='/other'>Other page</a></li>
+    </ul>
+
+    <my-banner>{{ title }}</my-banner>
+
     <!-- Pre-rendered Lit components will be generated here. -->
     {{ content }}
 
@@ -47,7 +56,7 @@
         // Start fetching the Lit hydration support module (note the absence
         // of "await" -- we don't want to block yet).
         const litHydrateSupportInstalled = import(
-          './js/lit-element-hydrate-support.js'
+          '@/../../node_modules/@lit-labs/ssr-client/lit-element-hydrate-support.js'
         );
 
         // Check if we require the declarative shadow DOM polyfill. As of
@@ -56,7 +65,7 @@
         if (!HTMLTemplateElement.prototype.hasOwnProperty('shadowRoot')) {
           // Fetch the declarative shadow DOM polyfill.
           const {hydrateShadowRoots} = await import(
-            './js/template-shadowroot.js'
+            '@/../../node_modules/@webcomponents/template-shadowroot/template-shadowroot.js'
           );
 
           // Apply the polyfill. This is a one-shot operation, so it is important
@@ -74,7 +83,7 @@
 
         // Load component definitions. As each component definition loads, your
         // pre-rendered components will come to life and become interactive.
-        import('./js/design-system.js');
+        import('{{ entrypoint }}');
       })();
     </script>
   </body>
